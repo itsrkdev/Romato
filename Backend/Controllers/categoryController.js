@@ -1,4 +1,4 @@
-import categoryModel from "../models/categoryModel.js";
+import categoryModel from "../Models/categoryModel.js";
 
 // 1. Database mein Category Add Karne Ke Liye
 const addCategory = async (req, res) => {
