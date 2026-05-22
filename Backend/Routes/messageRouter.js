@@ -1,6 +1,6 @@
 import express from "express";
 import { sendMessage, getMessages, getAllChatsForAdmin, getAdminId, deleteMessage } from "../Controllers/MessageController.js";
-import authMiddleware from "../middleware/Auth.js";
+import authMiddleware from "../Middleware/Auth.js";
 
 const messageRouter = express.Router();
 
