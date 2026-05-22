@@ -1,0 +1,267 @@
+
+/* Container and General Styles */
+.manage-container {
+    padding: 30px;
+    width: 100%;
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+}
+
+/* Desktop Table Layout */
+
+.list-table-format-admin {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 0.8fr 1fr 1fr 0.6fr 0.6fr;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    background-color: white;
+    gap: 10px;
+}
+
+.title-row {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #444;
+    border-bottom: 2px solid #eee;
+}
+
+/* Alignment Utils */
+
+.text-left {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Stats Colors */
+
+.bold-orange {
+    color: #ff4c24;
+    font-weight: 600;
+}
+
+.bold-black {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Status Badges */
+
+.active-status,
+.blocked-text {
+    display: inline-block;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.active-status {
+    background-color: #e8f8f0;
+    color: #2ecc71;
+}
+
+.blocked-text {
+    background-color: #fff4e5;
+    color: #e67e22;
+}
+
+/* Icons and Actions */
+
+.icon-size {
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-size:hover {
+    transform: scale(1.2);
+}
+
+.block-btn {
+    color: #f39c12;
+}
+
+.unblock-btn {
+    color: #2ecc71;
+}
+
+.delete-icon {
+    color: #d32f2f;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.no-data {
+    padding: 30px;
+    text-align: center;
+    color: #888;
+}
+
+/* Tablet Responsive */
+
+@media (max-width: 992px) {
+
+    .manage-container {
+        padding: 20px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .list-table-format-admin {
+        grid-template-columns:
+            1.2fr 1.8fr 0.8fr 1fr 1fr 0.6fr 0.6fr;
+
+        font-size: 14px;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    .manage-container {
+        padding: 12px;
+    }
+
+    /* Horizontal Scroll */
+    .list-table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    /* Full table width */
+    .list-table-format-admin {
+        min-width: 580px;
+        display: grid;
+        grid-template-columns:
+            /* 140px 220px 80px 110px 100px 70px 70px; */
+            60px 60px 80px 70px 65px 55px 60px;
+
+        align-items: center;
+        gap: 10px;
+
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .title-row {
+        display: grid;
+    }
+
+    .text-left {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .active-status,
+    .blocked-text {
+        width: 70px;
+        font-size: 11px;
+    }
+
+    .icon-size {
+        font-size: 16px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .header-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Extra Small Devices */
+
+@media (max-width: 480px) {
+
+    .manage-container {
+        padding: 12px;
+    }
+
+    .search-box {
+        padding: 10px 12px;
+    }
+
+    .search-box input {
+        font-size: 13px;
+    }
+
+    .list-table-format-admin {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 17px;
+    }
+
+    .icon-size {
+        font-size: 18px;
+    }
+}

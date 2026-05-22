@@ -1,0 +1,115 @@
+.order-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid #ff6347;
+    padding: 20px;
+    margin: 15px 0px;
+    font-size: 14px;
+    color: #454545;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.order-item-food,
+.order-item-name {
+    font-weight: 600;
+}
+
+.order-item-address {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.status-text {
+    font-weight: bold;
+}
+
+.status-text.paid {
+    color: #2ecc71;
+}
+
+.status-text.food-processing {
+    color: #3498db;
+}
+
+.status-text.out-for-delivery {
+    color: #f39c12;
+}
+
+.status-text.delivered {
+    color: #27ae60;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* --- Mobile Responsive for Orders --- */
+
+@media (max-width: 768px) {
+
+    .add {
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order-item {
+        /* Grid hata kar Flexbox lagaya taaki column ki jagah rows ban jayein */
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        position: relative;
+    }
+
+    /* Agar aap parcel icon use kar rahe hain toh usse adjust karein */
+    .order-item img {
+        width: 35px;
+        margin-bottom: 5px;
+    }
+
+    .order-item-food {
+        font-size: 15px;
+        color: #000;
+        margin-bottom: 5px;
+    }
+
+    /* Name aur Address ke beech ki spacing kam ki */
+    .order-item-name {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    .order-item-address {
+        margin-top: 2px;
+        line-height: 1.4;
+        font-size: 13px;
+    }
+
+    /* Status text ko mobile par highlight karne ke liye */
+    .status-text {
+        font-size: 13px;
+        padding: 5px 0;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+        display: block;
+        width: 100%;
+    }
+
+    /* Title ko thoda chota kiya mobile ke liye */
+    .title {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}

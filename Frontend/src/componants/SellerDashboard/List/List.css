@@ -1,0 +1,219 @@
+/* --- Root Setup --- */
+.list-add {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.list-add>p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* --- Table Container --- */
+.list-table {
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* --- Grid Layout (Desktop) --- */
+.list-table-format-seller {
+    display: grid;
+    /* Image | Name | Category | Price | Action */
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.list-table-format-seller.title {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #000;
+}
+
+.list-table-format-seller img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* --- Row Text Styling --- */
+.list-table-format-seller p {
+    margin: 0;
+    color: #444;
+    line-height: 1.2;
+    /* Basic wrapping for desktop */
+    word-break: break-word;
+}
+
+/* --- Action Icons --- */
+.action-btns {
+    display: flex;
+    gap: 12px;
+    font-size: 18px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.edit-icon {
+    color: #2ecc71;
+}
+
+.delete-icon {
+    color: #e74c3c;
+}
+
+/* --- Edit Modal --- */
+/* .edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+} */
+
+.edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.modal-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.update-btn {
+    background: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.cancel-btn {
+    background: #ccc;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    flex: 1;
+}
+
+
+
+
+
+
+/* --- MOBILE FIX (image_d11370.png fix) --- */
+@media (max-width: 600px) {
+    .list-table-format-seller {
+        /* 4 Columns: Image(45px) | Name(Flexible) | Price(55px) | Action(65px) */
+        grid-template-columns: 45px 1.2fr 55px 65px;
+        gap: 6px;
+        padding: 10px 5px;
+        font-size: 11px;
+    }
+
+    .list-table-format-seller.title {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 300px;
+    }
+
+    /* 1. Category (p tag index 2) ko hide karein */
+    .list-table-format-seller.title b:nth-child(3),
+    .list-table-format-seller p:nth-of-type(2) {
+        display: none;
+    }
+
+    /* 2. Name Column Fix: Taki image ke niche na dabe */
+    .list-table-format-seller p:nth-of-type(1) {
+        font-weight: 500;
+        width: 48px;
+        color: #222;
+        display: block;
+        /* Ensure block display */
+        white-space: normal;
+        /* Text niche line mein aane dein */
+        overflow: visible;
+        /* Hide na ho */
+        padding-left: 2px;
+    }
+
+    /* 3. Price Fix */
+    .list-table-format-seller p:nth-of-type(3) {
+        text-align: center;
+        font-weight: 600;
+        white-space: nowrap;
+        /* ₹500 hamesha ek line mein rahe */
+    }
+
+    .list-table-format-seller img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .action-btns {
+        gap: 16px;
+        font-size: 15px;
+    }
+}
+

@@ -1,0 +1,231 @@
+:root {
+    --nav-height: 90px;
+    --primary-color: #49557e;
+    --accent-color: tomato;
+}
+
+/* 1. Navbar Container Fix */
+.navbar {
+    width: 100%;
+    height: var(--nav-height);
+    padding: 0px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+    /* Isse wo white gap aur shadow fix hogi */
+    border-bottom: 1px solid #f3f3f3;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 85px;
+    cursor: pointer;
+}
+
+/* 2. Menu Items Alignment */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    color: var(--primary-color);
+    font-size: 17px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.navbar-menu .active {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 2px;
+}
+
+/* 3. Right Side (Icons & Buttons) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-search-icon, .navbar-basket-icon img {
+    width: 22px;
+    cursor: pointer;
+}
+
+.navbar-basket-icon {
+    position: relative;
+    display: flex;
+}
+
+.navbar-basket-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    top: -5px;
+    right: -5px;
+}
+
+/* 4. Profile & Dropdown Fix */
+.navbar-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 23px; /* Profile Icon Size */
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.user-text span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.user-text small {
+    font-size: 11px;
+    color: var(--accent-color);
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    min-width: 160px;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+    z-index: 1001;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown li:hover p {
+    color: var(--accent-color);
+}
+
+.nav-profile-dropdown hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* 5. Mobile Toggle */
+.mobile-toggle-icon {
+    display: none;
+    width: 25px;
+    cursor: pointer;
+}
+
+
+
+/* --- RESPONSIVE PHONE FIX --- */
+
+@media (max-width: 1050px) {
+    .logo { width: 55px; }
+    .navbar-menu { gap: 15px; font-size: 16px; }
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        height: 70px;
+    }
+    
+    .navbar-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: white;
+        width: 100%; /* Poori screen mobile menu */
+        height: auto;
+        padding: 30px;
+        transition: 0.4s;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.05);
+    }
+
+    .navbar-menu.active-mobile {
+        right: 0;
+    }
+
+    .mobile-toggle-icon {
+        display: block;
+    }
+
+    .user-text, .nav-search-icon {
+        display: none; /* Mobile par clean look ke liye */
+    }
+
+    .navbar-right {
+        gap: 10px;
+    }
+}
+
+/* 6. Dashboard Content Fix (Taaki overlap na ho) */
+/* Isse aapki main App wali file ya home page par apply karein */
+.main-wrapper {
+    margin-top: 0; /* Gap hatane ke liye */
+    padding-top: 20px; /* Thoda space upar se */
+}
+
+
+.nav-signin-btn {
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.nav-signin-btn:hover {
+    background-color: #fff4f2;
+    transform: scale(1.05); /* Halka sa bada hoga hover par */
+}
+
+/* Mobile responsive for button */
+@media (max-width: 750px) {
+    .nav-signin-btn {
+        padding: 7px 20px;
+        font-size: 14px;
+    }
+}

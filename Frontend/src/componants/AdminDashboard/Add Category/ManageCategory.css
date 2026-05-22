@@ -1,0 +1,80 @@
+.manage-category {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Edit Form Box Styling */
+.edit-form-box {
+    background: #fdf2f0;
+    border: 1px solid #ff4c24;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-form-box input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.save-btn { background: #ff4c24; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;}
+.cancel-btn { background: #666; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;}
+
+/* Table Design */
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.category-table th, .category-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.category-table th {
+    background-color: #ff4c24;
+    color: white;
+}
+
+.table-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-btn { background: #3498db; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;}
+.delete-btn { background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .category-table th, .category-table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    .edit-btn, .delete-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

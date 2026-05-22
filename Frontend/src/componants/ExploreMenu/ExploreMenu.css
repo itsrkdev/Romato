@@ -1,0 +1,111 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0; /* Thodi si breathing space */
+}
+
+.explore-menu h1 {
+    color: #262626;
+    font-weight: 500;
+    font-size: max(2.5vw, 24px); /* Desktop and Mobile balanced heading */
+}
+
+.explore-menu-text {
+    max-width: 60%;
+    color: #808080;
+    line-height: 1.5;
+}
+
+.explore-menu-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 20px 0px;
+    overflow-x: scroll;
+    /* Smooth scrolling for mobile touch */
+    -webkit-overflow-scrolling: touch; 
+}
+
+.explore-menu-list::-webkit-scrollbar {
+    display: none;
+}
+
+.explore-menu-list-item img {
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    object-fit: cover; /* Image quality maintain karne ke liye */
+}
+
+/* Active Class Fix */
+.explore-menu-list-item .Active {
+    border: 4px solid tomato;
+    padding: 2px;
+}
+
+.explore-menu-list-item p {
+    margin-top: 10px;
+    color: #747474;
+    font-size: max(1.2vw, 14px);
+    cursor: pointer;
+}
+
+.explore-menu hr {
+    background-color: #e2e2e2;
+    margin: 10px 0px;
+    height: 2px;
+    border: none;
+}
+
+/* --- Media Queries --- */
+
+/* Tablet View */
+@media (max-width: 1050px) {
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 15px;
+    }
+    .explore-menu-list {
+        gap: 20px;
+    }
+}
+
+/* Mobile View (The Magic Happens Here) */
+@media (max-width: 750px) {
+    .explore-menu h1 {
+        font-size: 22px;
+    }
+
+    .explore-menu-text {
+        font-size: 14px;
+        color: #6d6d6d;
+    }
+
+    .explore-menu-list {
+        gap: 15px; /* Kam gap taaki zyada items screen par dikhein */
+        margin: 10px 0px;
+    }
+
+    .explore-menu-list-item img {
+        width: 20vw; /* Mobile par image ko size ke hisaab se set kiya */
+        min-width: 75px;
+        max-width: 90px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 480px) {
+    .explore-menu-list {
+        padding-bottom: 10px; /* Thoda gap scroll area ke niche */
+    }
+}

@@ -1,0 +1,235 @@
+/* Main Container */
+.admin-chat-container {
+    display: flex;
+    height: 70vh; /* Window height ke hisab se adjust karein */
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- SIDEBAR: User List --- */
+.user-list {
+    width: 30%;
+    height: 70vh;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+}
+
+.user-list h3 {
+    padding: 20px;
+    margin: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.user-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+.user-item:hover {
+    background-color: #f0f7ff;
+}
+
+.user-item.active {
+    background-color: #e7f3ff;
+    border-left: 4px solid #ff6347; /* Admin theme color */
+}
+
+.user-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.user-item small {
+    color: #888;
+    font-size: 12px;
+}
+
+/* --- MAIN: Chat Area --- */
+.chat-area {
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5; /* Light chat background */
+}
+
+.chat-header {
+    padding: 15px 25px;
+    background-color: #fff;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.messages-display {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Message Bubbles Wrapper */
+.own-message, .user-message {
+    display: flex;
+    width: 100%;
+}
+
+.own-message { justify-content: flex-end; } /* Admin on Right */
+.user-message { justify-content: flex-start; } /* Seller on Left */
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    word-wrap: break-word; /* Text overflow fix */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Admin Bubble (Orange) */
+.own-message .message-bubble {
+    background-color: #ff6347;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+/* Seller Bubble (White) */
+.user-message .message-bubble {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom-left-radius: 2px;
+    border: 1px solid #e5e5e5;
+}
+
+.msg-time {
+    font-size: 10px;
+    margin-top: 5px;
+    display: block;
+    text-align: right;
+    opacity: 0.8;
+}
+
+/* --- Input Area --- */
+.chat-input-area {
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+}
+
+.chat-input-area input:focus {
+    border-color: #ff6347;
+}
+
+.chat-input-area button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.chat-input-area button:hover {
+    background-color: #e5533d;
+}
+
+/* Empty State */
+.no-chat, .no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-style: italic;
+}
+
+
+/* --- RESPONSIVE UPDATES --- */
+
+@media (max-width: 768px) {
+    .admin-chat-container {
+        margin: 0;
+        height: 70vh; /* Mobile par full height */
+        border-radius: 0;
+    }
+
+    /* Sidebar logic: Agar koi user selected hai toh sidebar hide kar do */
+    .user-list {
+        width: 100%;
+        height: 100%;
+        display: none; /* Default hide on mobile if chat is open */
+    }
+
+    /* Jab sidebar active ho (no user selected) */
+    .admin-chat-container.show-sidebar .user-list {
+        display: flex;
+    }
+
+    /* Chat Area logic */
+    .chat-area {
+        width: 100%;
+        height: 100%;
+        display: none; /* Hide chat area if no user selected */
+    }
+
+    /* Jab chat active ho */
+    .admin-chat-container.show-chat .chat-area {
+        display: flex;
+    }
+
+    .message-bubble {
+        max-width: 85%; /* Mobile par thoda zyada space */
+    }
+
+    .chat-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* Back Button styling for mobile */
+.back-btn {
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ff6347;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .back-btn {
+        display: block;
+    }
+}

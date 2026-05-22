@@ -1,0 +1,114 @@
+.header {
+  height: 34vw;
+  margin: 30px auto;
+  background: url('/header_img.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+  /* Image center me rahegi */
+  position: relative;
+  border-radius: 15px;
+  /* Thoda modern look ke liye */
+  overflow: hidden;
+}
+
+.header-contents {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5vw;
+  max-width: 50%;
+  bottom: 10%;
+  left: 6vw;
+  animation: FadeIn 3s;
+}
+
+.header-contents h2 {
+  font-weight: 500;
+  color: white;
+  font-size: max(4.5vw, 22px);
+  line-height: 1.2;
+}
+
+.header-contents p {
+  color: white;
+  font-size: 1.2vw;
+  /* Desktop par thoda bada kiya */
+}
+
+.header-contents button {
+  border: none;
+  color: #747474;
+  font-weight: 500;
+  padding: 1vw 2.3vw;
+  background-color: white;
+  font-size: max(1vw, 13px);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-contents button:hover {
+  background-color: #efefef;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablet View */
+@media (max-width: 1050px) {
+  .header-contents {
+    max-width: 50%;
+    bottom: 15%;
+  }
+}
+
+/* Mobile View (Sabse important changes yahan hain) */
+@media (max-width: 750px) {
+  .header {
+    height: 60vw;
+    /* Height badha di taaki banner mobile me bada dikhe */
+    background-size: cover;
+    /* Image cut na ho aur poore area me dikhe */
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+
+  .header-contents {
+    max-width: 85%;
+    /* Text area ko bada kiya */
+    left: 5vw;
+    bottom: 15%;
+    gap: 3vw;
+    /* Mobile me gap thoda zyada achha lagta hai */
+  }
+
+  .header-contents h2 {
+    font-size: max(7vw, 24px);
+    /* Mobile me heading badi dikhegi */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Readable banane ke liye */
+  }
+
+
+  /* Agar Paragraph bilkul nahi chahiye toh isse uncomment karein */
+  .header-contents p {
+    display: none;
+  }
+
+  .header-contents button {
+    padding: 3vw 6vw;
+    font-size: 3.5vw;
+  }
+}
+
+/* Chote Phones ke liye (Extra Small) */
+@media (max-width: 480px) {
+  .header {
+    height: 75vw;
+    /* Thoda aur bada height */
+  }
+
+  .header-contents h2 {
+    font-size: 28px;
+  }
+}

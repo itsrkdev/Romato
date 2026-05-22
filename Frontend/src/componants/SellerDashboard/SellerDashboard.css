@@ -1,0 +1,252 @@
+/* Desktop Layout */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: white;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+
+/* --- Mobile Fix: Sabse niche rakhein --- */
+@media screen and (max-width: 768px) {
+    .dashboard-wrapper {
+        flex-direction: column !important;
+        /* Force vertical layout */
+        display: block !important;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        /* Poori width lo */
+        height: auto !important;
+        min-height: auto !important;
+        position: relative !important;
+        border-right: none !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .sidebar-options {
+        flex-direction: row !important;
+        /* Buttons line mein */
+        padding: 10px !important;
+        gap: 15px !important;
+        overflow-x: auto !important;
+        /* Swipe option */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar-option {
+        flex-shrink: 0 !important;
+        /* Button ko chota hone se roko */
+        padding: 10px 15px !important;
+        background: #f8f8f8 !important;
+        border-radius: 5px !important;
+    }
+
+    .sidebar-option p {
+        font-size: 14px !important;
+        margin: 0 !important;
+    }
+
+    .dashboard-content {
+        width: 100% !important;
+        padding: 15px !important;
+    }
+
+    .sidebar-option.active {
+        background-color: tomato !important;
+        color: white !important;
+        transform: scale(1.05);
+        /* Clicked feel dene ke liye */
+        box-shadow: 0px 4px 10px rgba(255, 99, 71, 0.3);
+    }
+
+    .sidebar-option img {
+        filter: brightness(0) invert(1);
+        /* Active hone par icon white ho jayega */
+    }
+
+
+    .dashboard-content {
+        padding: 20px 15px !important;
+        /* Isse ensure hoga ki content sidebar ke niche na chupe */
+        margin-top: 10px;
+    }
+
+}
+
+
+/* NAVBAR CSSSSS */
+
+.navbar-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 23px;
+    /* Profile Icon Size */
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.user-text span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.user-text small {
+    font-size: 11px;
+    color: var(--accent-color);
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    min-width: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown li:hover p {
+    color: var(--accent-color);
+}
+
+
+
+
+.admin-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* Logo left mein, Profile right mein */
+    align-items: center;
+    padding: 12px 4%;
+    background-color: white;
+    border-bottom: 1.5px solid #dbdbdb;
+    box-sizing: border-box;
+    /* Padding ko width ke andar count karne ke liye */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.admin-navbar .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Logo aur Badge ke beech space */
+}
+
+.admin-navbar .logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+.admin-navbar .profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #ff6347;
+    /* Tomato color border */
+    cursor: pointer;
+}
+
+.admin-badge {
+    border: 1px solid #494949;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #494949;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .admin-navbar {
+        padding: 10px 15px;
+        height: 65px;
+    }
+
+    .admin-navbar .logo {
+        width: 55px;
+        /* Mobile par logo chhota */
+    }
+
+    .admin-badge {
+        display: none;
+        /* Mobile par badge hide kar diya taaki space bache */
+    }
+
+    .admin-navbar .profile {
+        width: 38px;
+        height: 38px;
+    }
+
+    .nav-profile-dropdown {
+        min-width: 50px;
+    }
+
+    .nav-profile-dropdown li {
+
+        gap: 6px;
+    }
+
+    .nav-profile-dropdown li img  {
+
+       width: 30px;
+    }
+
+}

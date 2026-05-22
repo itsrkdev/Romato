@@ -1,0 +1,240 @@
+/* Container & Titles */
+.my-orders {
+    padding: 30px;
+    width: 100%;
+}
+
+.my-orders h2 {
+    margin-bottom: 20px;
+    color: #454545;
+}
+
+/* Grid Layout Logic */
+.order-table-format {
+    display: grid;
+    /* Parcel(0.5) | Items(2) | Amount(1) | Qty(0.5) | Status(1.2) | Action(1) */
+    grid-template-columns: 0.5fr 2fr 1fr 0.5fr 1.2fr 1fr;
+    align-items: center;
+    padding: 12px 20px;
+    border: 1px solid #eeeeee;
+    background-color: white;
+    font-size: 14px;
+}
+
+.order-table-header {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+}
+
+.order-row {
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.order-row:hover {
+    background-color: #fafafa;
+}
+
+/* Specific Column Styling */
+.parcel-img {
+    width: 40px;
+}
+
+.items-text {
+    padding-right: 15px;
+    color: #444;
+}
+
+.amount-col {
+    font-weight: 600;
+}
+
+/* Status Styling */
+.order-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    font-size: 10px;
+    color: #eeeeee00;
+}
+
+.status-dot.food-processing { color: #ff9800; }
+.status-dot.out-for-delivery { color: #2196f3; }
+.status-dot.delivered { color: #4caf50; }
+
+/* Track Button */
+.track-btn {
+    padding: 8px 12px;
+    background-color: #ffe1d9;
+    border: 1px solid #ff4c24;
+    color: #ff4c24;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+}
+
+.track-btn:hover {
+    background-color: #ff4c24;
+    color: white;
+}
+
+/* --- MODAL CSS --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+}
+
+.status-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.stepper-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 15px; left: 0; width: 100%; height: 2px;
+    background: #eee;
+    z-index: 1;
+}
+
+.step {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; width: 25%;
+}
+
+.circle {
+    width: 30px; height: 30px; background: white; border: 2px solid #ddd;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    font-weight: bold; margin-bottom: 5px;
+}
+
+.step p { font-size: 11px; color: #888; }
+
+.step.completed .circle {
+    background: #ff4c24; border-color: #ff4c24; color: white;
+}
+
+.step.completed p { color: #ff4c24; font-weight: 600; }
+
+.done-btn {
+    margin-top: 10px; width: 100%; padding: 10px;
+    background: #ff4c24; color: white; border: none; border-radius: 5px;
+    cursor: pointer; font-weight: 600;
+}
+
+
+/* --- RESPONSIVE UPDATES --- */
+
+@media (max-width: 768px) {
+    .my-orders {
+        padding: 15px;
+    }
+
+    /* Header ko mobile par hide kar denge kyunki cards mein labels honge */
+    .order-table-header {
+        display: none;
+    }
+
+    .orders-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .order-row {
+        display: flex;
+        flex-direction: column; /* Column layout for mobile cards */
+        align-items: flex-start;
+        padding: 15px;
+        gap: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .img-col {
+        display: none; /* Mobile par icon hide kar sakte hain space bachane ke liye */
+    }
+
+    .items-text {
+        font-size: 15px;
+        font-weight: 600;
+        padding-right: 0;
+    }
+
+    /* Label dikhane ke liye pseudoelements (Optional but good) */
+    .amount-col::before { content: "Amount: "; font-weight: 400; color: #777; }
+    .qty-col::before { content: "Items: "; font-weight: 400; color: #777; }
+
+    .order-status {
+        width: 100%;
+        justify-content: flex-start;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+    }
+
+    .action-col {
+        width: 100%;
+    }
+
+    .track-btn {
+        padding: 12px; /* Touch target bada karne ke liye */
+    }
+
+    /* Stepper Modal for Mobile */
+    .status-modal {
+        width: 95%;
+        padding: 20px 10px;
+    }
+
+    .stepper-wrapper {
+        flex-direction: column; /* Stepper ko vertical kar diya */
+        align-items: flex-start;
+        gap: 20px;
+        padding-left: 20px;
+    }
+
+    .stepper-wrapper::before {
+        width: 2px;
+        height: 100%;
+        left: 34px;
+        top: 0;
+    }
+
+    .step {
+        flex-direction: row;
+        width: 100%;
+        gap: 15px;
+        justify-content: flex-start;
+    }
+
+    .step p {
+        font-size: 14px;
+    }
+}

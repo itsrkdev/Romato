@@ -1,0 +1,217 @@
+.dashboard-wrapper {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    flex: 1;
+    /* Ye bachi hui poori screen le lega */
+    padding: 20px 40px;
+    background-color: #fcfcfc;
+}
+
+/* Sidebar ki thodi styling */
+.sidebar {
+    width: 18%;
+    min-height: 100vh;
+    border-right: 1.5px solid #a9a9a9;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-options {
+    padding-top: 50px;
+    padding-left: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar-option.active {
+    background-color: #fff2ef;
+    border: 1px solid tomato;
+    border-right: 0;
+}
+
+
+/* NAVBAR CSSSSS */
+
+.navbar-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 23px;
+    /* Profile Icon Size */
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.user-text span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.user-text small {
+    font-size: 11px;
+    color: var(--accent-color);
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    min-width: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown li:hover p {
+    color: var(--accent-color);
+}
+
+
+
+
+.admin-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* Logo left mein, Profile right mein */
+    align-items: center;
+    padding: 12px 4%;
+    background-color: white;
+    border-bottom: 1.5px solid #dbdbdb;
+    box-sizing: border-box;
+    /* Padding ko width ke andar count karne ke liye */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.admin-navbar .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Logo aur Badge ke beech space */
+}
+
+.admin-navbar .logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+.admin-navbar .profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #ff6347;
+    /* Tomato color border */
+    cursor: pointer;
+}
+
+.admin-badge {
+    border: 1px solid #494949;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #494949;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .admin-navbar {
+        padding: 10px 15px;
+        height: 65px;
+    }
+
+    .admin-navbar .logo {
+        width: 90px;
+        /* Mobile par logo chhota */
+    }
+
+    .admin-badge {
+        display: none;
+        /* Mobile par badge hide kar diya taaki space bache */
+    }
+
+    .admin-navbar .profile {
+        width: 38px;
+        height: 38px;
+    }
+
+    .nav-profile-dropdown {
+        min-width: 50px;
+    }
+
+    .nav-profile-dropdown li {
+
+        gap: 6px;
+    }
+
+    .nav-profile-dropdown li img  {
+
+       width: 30px;
+    }
+
+
+
+
+
+
+
+}

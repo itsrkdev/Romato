@@ -1,0 +1,164 @@
+.add {
+    width: 100%;
+    /* Mobile par margin auto aur desktop par padding use karenge */
+    padding: 40px;
+    color: #6d6d6d;
+    font-size: 16px;
+    display: flex;
+    justify-content: center; /* Form ko center mein rakhega */
+}
+
+.add-form {
+    width: 100%;
+    max-width: 650px; /* Thoda broad form better lagta hai */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+    color: #262626; /* Deep color for headings */
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* Tomato underline effect */
+.form-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: tomato;
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label-text {
+    font-weight: 600;
+    color: #444;
+    font-size: 14px;
+}
+
+/* --- Image Upload Refinement --- */
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upload-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px dashed #d1d1d1;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-preview:hover {
+    border-color: tomato;
+    background-color: #fff9f8;
+}
+
+/* --- Input & Textarea Refinement --- */
+.add-product-name input, 
+.add-product-description textarea,
+.add-category select,
+.add-price input {
+    padding: 12px 15px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+}
+
+.add-product-name input:focus, 
+.add-product-description textarea:focus,
+.add-price input:focus,
+.add-category select:focus {
+    border-color: tomato;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 99, 71, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* --- Category & Price Row --- */
+.add-category-price {
+    display: flex;
+    gap: 25px;
+}
+
+.add-category-price .flex-col {
+    flex: 1; /* Dono equal space lenge */
+}
+
+.add-category-price select,
+.add-category-price input {
+    width: 100% !important; /* Wrapper handle karega width */
+}
+
+/* --- Submit Button --- */
+.add-btn {
+    width: 180px;
+    border: none;
+    padding: 14px;
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+    transition: 0.3s;
+    margin-top: 15px;
+    align-self: flex-start;
+}
+
+.add-btn:hover {
+    background-color: #e5533d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    .add {
+        padding: 20px 15px;
+    }
+
+    .add-form {
+        padding: 25px 20px;
+        box-shadow: none;
+        border: 1px solid #eee;
+    }
+
+    .add-category-price {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .add-btn {
+        width: 100%; /* Mobile par full width button better hai */
+    }
+}
+

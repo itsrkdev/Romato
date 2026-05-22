@@ -1,0 +1,241 @@
+/* Main Chat Window Container */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    /* Aap apne hisab se adjust kar sakte hain */
+    height: 70vh;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+/* Header Section */
+.chat-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.status-dot {
+    width: 10px;
+    /* Width ko 100px se 10px kar diya */
+    height: 10px;
+    background-color: #28a745;
+    border-radius: 50%;
+    /* Isse perfect gol circle banega */
+    margin-right: 10px;
+    flex-shrink: 0;
+    /* Taaki dot pichke nahi */
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Messages Display Area */
+.messages-display {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f0f2f5;
+    /* Light chat background */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Scrollbar Styling */
+.messages-display::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages-display::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* Message Wrapper - Main Logic for Left/Right Alignment */
+.message-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Seller (User) Messages - Right Side */
+.own-message {
+    justify-content: flex-end;
+}
+
+/* Admin Messages - Left Side */
+.admin-message {
+    justify-content: flex-start;
+}
+
+/* The Message Bubble */
+.message-bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    position: relative;
+    font-size: 14.5px;
+    group: hover;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.delete-btn {
+    cursor: pointer;
+    font-size: 10px;
+    margin-left: 8px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.message-bubble:hover .delete-btn {
+    opacity: 1;
+}
+
+
+
+/* Bubble Styling for Seller (Orange) */
+.own-message .message-bubble {
+    background-color: #ff6347;
+    /* Aapka orange color */
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Bubble Styling for Admin (White/Grey) */
+.admin-message .message-bubble {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+
+
+/* Timestamp Styling */
+.message-time {
+    display: block;
+    font-size: 10px;
+    margin-top: 4px;
+    text-align: right;
+    opacity: 0.7;
+}
+
+.own-message .message-time {
+    color: #fff;
+}
+
+.admin-message .message-time {
+    color: #888;
+}
+
+/* Input Area at Bottom */
+.chat-input-area {
+    padding: 15px 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+.chat-input-area input:focus {
+    border-color: #ff6347;
+}
+
+.chat-input-area button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.chat-input-area button:hover {
+    background-color: #e5533d;
+}
+
+/* --- Mobile Responsive Chat (FIXED) --- */
+
+@media (max-width: 600px) {
+    .chat-window {
+        margin: 0;
+        width: 100%;
+        max-width: 100%; 
+        height: 70vh; 
+        border-radius: 0; 
+    }
+
+    /* Input area fix */
+    .chat-input-area {
+        padding: 10px;
+        gap: 8px;
+        background-color: #fff;
+        display: flex;
+        align-items: center; /* Sab kuch vertically center rahega */
+    }
+
+    .chat-input-area input {
+        flex: 1; /* Input jitni jagah bachi hai wo le lega */
+        min-width: 0; /* CRITICAL: Isse input button ko screen se bahar nahi fekega */
+        padding: 10px 15px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+    }
+
+    .chat-input-area button {
+        flex-shrink: 0; /* CRITICAL: Isse button pichakna band ho jayega */
+        padding: 10px 18px;
+        font-size: 14px;
+        border-radius: 20px;
+        height: 40px; /* Uniform height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Baaki settings */
+    .messages-display {
+        padding: 15px 10px;
+        gap: 8px;
+    }
+
+    .message-bubble {
+        max-width: 85%;
+        font-size: 14px;
+    }
+
+    .delete-btn {
+        opacity: 0.6; 
+        font-size: 12px;
+    }
+}
+
+
+

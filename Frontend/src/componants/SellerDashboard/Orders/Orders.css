@@ -1,0 +1,105 @@
+/* Orders.css */
+
+.order-page {
+    padding: 20px 50px;
+}
+
+.order-list {
+    margin-top: 30px;
+}
+
+.order-items {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid #ededed;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #454545;
+    font-size: 14px;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.order-items:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.order-items img {
+    width: 50px;
+}
+
+.order-item-food {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.order-item-name {
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.order-item-address {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.order-item-phone {
+    color: #262626;
+}
+
+.order-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.order-amount {
+    font-weight: 700;
+    color: #ff4c24;
+    margin-top: 10px;
+}
+
+.status-select {
+    background-color: #fff2ef;
+    border: 1px solid #ff4c24;
+    width: max-content;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.no-orders {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 50px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .order-items {
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 15px;
+        font-size: 12px;
+        padding: 15px;
+    }
+
+    .status-select {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .order-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

@@ -1,0 +1,192 @@
+/* Container Box */
+.category-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.add-category {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.add-category h2, .category-list-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.add-category form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form Buttons Setup */
+.form-action-btns {
+    display: flex;
+    gap: 10px;
+}
+
+/* Upload Image Div Container */
+.upload-img {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%; /* Ensure it stays within parent boundaries */
+    box-sizing: border-box;
+}
+
+/* File Input Wrapper/Styling */
+.upload-img input[type="file"] {
+    width: 100%;
+    max-width: 100%; /* Prevent stretching out of box */
+    padding: 8px 0;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    
+    /* Chrome/Safari/Firefox me text overflow handle karne ke liye trick */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+/* Extra Styling: Agar aap "Choose File" button ko thoda premium look dena chahte hain (Optional but beautiful) */
+.upload-img input[type="file"]::file-selector-button {
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-right: 10px;
+}
+
+.upload-img input[type="file"]::file-selector-button:hover {
+    background-color: #e2e2e2;
+}
+
+/* Category Input Box (Just to ensure safety) */
+.add-category-name input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Padding se box bada na ho */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.submit-btn {
+    width: 130px;
+    padding: 12px;
+    background-color: #ff4c24;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    width: 130px;
+    padding: 12px;
+    background-color: #777777;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.section-divider {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* === Table Styling === */
+.category-table-wrapper {
+    overflow-x: auto; /* Mobile par responsive scrolling ke liye */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.category-table th, .category-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 15px;
+}
+
+.category-table th {
+    background-color: #f9f9f9;
+    color: #555;
+    font-weight: 600;
+}
+
+.cat-table-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Action Buttons in Table */
+.table-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn-style {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn-style {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 600px) {
+    .form-action-btns {
+        flex-direction: column;
+    }
+    .submit-btn, .cancel-btn {
+        width: 100%;
+    }
+    .category-table th, .category-table td {
+        padding: 8px;
+        font-size: 13px;
+    }
+    .table-btns {
+        flex-direction: column;
+        gap: 4px;
+    }
+    .edit-btn-style, .delete-btn-style {
+        padding: 5px;
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+    }
+}

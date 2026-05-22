@@ -1,0 +1,92 @@
+.payment-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f6f8;
+    padding: 20px;
+}
+
+.payment-card {
+    background: #ffffff;
+    max-width: 420px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.payment-card h2 {
+    color: #262626;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.order-summary-box {
+    background: #fff8f6;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #ffe8e2;
+}
+
+.order-summary-box p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.order-summary-box span {
+    font-weight: 600;
+    color: #333;
+}
+
+.order-summary-box .amount-display span {
+    color: #ff4c24; /* Romato Red */
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.gateway-branding {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+.payment-badges {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0.5px;
+}
+
+.btn-pay-now {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4c24; /* Romato Red */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 12px rgba(255, 76, 36, 0.2);
+}
+
+.btn-pay-now:hover {
+    background-color: #e23b15;
+}
+
+.btn-pay-now:active {
+    transform: scale(0.98);
+}
+
+.btn-pay-now:disabled {
+    background-color: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+}

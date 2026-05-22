@@ -1,0 +1,22 @@
+.food-display {
+    margin-top: 30px;
+    padding: 0 15px; /* Mobile par sides se thoda space */
+}
+
+.food-display-list {
+    display: grid;
+    /* Desktop: 240px ke hisaab se, Mobile: 2 items (1fr 1fr) */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    row-gap: 35px;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    .food-display-list {
+        /* Mobile par exactly 2 items dikhayega side-by-side */
+        grid-template-columns: 1fr 1fr; 
+        gap: 12px; /* Cards ke beech ka gap kam kiya */
+    }
+}
+

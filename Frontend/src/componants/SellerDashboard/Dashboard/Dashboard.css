@@ -1,0 +1,134 @@
+.dashboard {
+    padding: 20px;
+    width: 100%;
+    color: #333;
+    animation: fadeIn 0.5s ease-in; /* Smooth entrance */
+}
+
+.dashboard h2 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+
+/* --- Stats Grid Fix --- */
+.dashboard-stats {
+    display: grid;
+    /* auto-fit aur minmax ensures ki mobile par 1 column aur desktop par 3 ho jayein */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* --- Stat Card Refinement --- */
+.stat-card {
+    padding: 25px;
+    border-radius: 15px; /* Thoda zyada rounded modern lagta hai */
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Background Glass Effect (Optional touch) */
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.stat-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.stat-card p {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* --- Colors (More Vibrant Gradients) --- */
+.revenue {
+    background: linear-gradient(135deg, #1d976c, #2ecc71);
+}
+
+.orders {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+.products {
+    background: linear-gradient(135deg, #f2994a, #f2c94c);
+}
+
+/* --- Charts/Overview Placeholder --- */
+.dashboard-charts-placeholder {
+    background-color: white;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    padding: 60px 20px;
+    text-align: center;
+    color: #a0aec0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-charts-placeholder p {
+    font-size: 16px;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 15px;
+    }
+
+    .dashboard h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr; /* Force 1 column on small phones */
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-card p {
+        font-size: 1.8rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
