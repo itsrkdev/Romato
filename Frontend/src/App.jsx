@@ -42,8 +42,8 @@ function App() {
 
   const [showLogin, setShowLogin] = useState(false);
 
-  const url = "http://localhost:3000";
-  // const url = "http://10.61.7.14:3000";
+  // const url = "http://localhost:3000";
+  const url = import.meta.env.VITE_BACKEND_URL;
 
   return (
     <>
