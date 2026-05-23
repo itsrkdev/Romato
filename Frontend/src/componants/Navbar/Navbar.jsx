@@ -42,7 +42,8 @@ export default function Navbar({ setShowLogin }) {
             
             {/* Desktop and Mobile Menu */}
             <ul className={`navbar-menu ${isMobileMenuOpen ? "active-mobile" : ""}`}>
-                <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? 'active' : ""}>Home</Link>
+                 <Link to="/" onClick={() => { setMenu("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={menu === "home" ? 'active' : ""}>Home </Link>
+                {/* <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? 'active' : ""}>Home</Link> */}
                 <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? 'active' : ""}>Menu</a>
                 <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? 'active' : ""}>Mobile-app</a>
                 <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? 'active' : ""}>Contact-us</a>
