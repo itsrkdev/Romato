@@ -7,7 +7,10 @@ import { storeContext } from '../../context/StoreContext'
 export default function Navbar({ setShowLogin }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [menu, setMenu] = useState("home");
-    const { getTotalCartAmount, setToken, setCartItems } = useContext(storeContext);
+    const [showSearchInput, setShowSearchInput] = useState(false); // Search input ko dikhane/chupane ke liye
+    
+    // Context se search aur setSearch ko nikala (Make sure aapne context mein ise add kiya ho)
+    const { getTotalCartAmount, setToken, setCartItems, search, setSearch } = useContext(storeContext);
     const navigate = useNavigate();
     const { pathname } = useLocation();
 
@@ -39,15 +42,14 @@ export default function Navbar({ setShowLogin }) {
     return (
         <div className='navbar'>
             <Link to="/"> <img src={assets.rlogo} alt="logo" className='logo' /></Link>
-            
+
             {/* Desktop and Mobile Menu */}
             <ul className={`navbar-menu ${isMobileMenuOpen ? "active-mobile" : ""}`}>
-                 <Link to="/" onClick={() => { setMenu("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={menu === "home" ? 'active' : ""}>Home </Link>
-                {/* <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? 'active' : ""}>Home</Link> */}
+                <Link to="/" onClick={() => { setMenu("home"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={menu === "home" ? 'active' : ""}>Home </Link>
                 <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? 'active' : ""}>Menu</a>
                 <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? 'active' : ""}>Mobile-app</a>
                 <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? 'active' : ""}>Contact-us</a>
-                
+
                 {/* Mobile Only Dashboard Link */}
                 {token && (
                     <li className="mobile-only-link" onClick={() => navigate(dashboardRoutes[role])}>
@@ -57,7 +59,35 @@ export default function Navbar({ setShowLogin }) {
             </ul>
 
             <div className="navbar-right">
-                <img src={assets.search_icon} alt="search" className="nav-search-icon" />
+                
+                {/* Dynamic Search Area */}
+                <div className="nav-search-container" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {showSearchInput && (
+                        <input 
+                            type="text" 
+                            placeholder="Search dishes..." 
+                            value={search || ""} 
+                            onChange={(e) => setSearch(e.target.value)}
+                            style={{
+                                padding: '6px 12px',
+                                borderRadius: '20px',
+                                border: '1px solid #ff4321',
+                                outline: 'none',
+                                fontSize: '14px',
+                                width: '150px',
+                                transition: 'all 0.3s ease'
+                            }}
+                        />
+                    )}
+                    <img 
+                        src={assets.search_icon} 
+                        alt="search" 
+                        className="nav-search-icon" 
+                        onClick={() => setShowSearchInput(!showSearchInput)}
+                        style={{ cursor: 'pointer' }}
+                    />
+                </div>
+
                 <div className="navbar-basket-icon">
                     <Link to='/cart'><img src={assets.basket_icon} alt="cart" /></Link>
                     <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
@@ -87,16 +117,17 @@ export default function Navbar({ setShowLogin }) {
                 )}
 
                 {/* Hamburger Toggle */}
-                <p className="mobile-toggle-icon" 
-                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-                  alt="toggle" 
+                <p className="mobile-toggle-icon"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    alt="toggle"
                 >
-                 &#9776;
+                    &#9776;
                 </p>
-        
+
             </div>
         </div>
     )
 }
+
 
 
