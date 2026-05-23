@@ -28,7 +28,7 @@ import Messages from './componants/AdminDashboard/Messages/Messages'
 import ContactSeller from './componants/SellerDashboard/Contact-us/ContactSeller'
 import ContactUser from './componants/UserDashboard/Contact-us/ContactUser'
 import AddCategory from './componants/AdminDashboard/Add Category/AddCategory'
-
+import NotFound from './NotFound';
 
 function App() {
 
@@ -99,9 +99,9 @@ function App() {
             <Route index element={<MyOrder />} />
             <Route path='myorders' element={<MyOrder />} />
             <Route path='contactuser' element={<ContactUser />} />
-
           </Route>
 
+          <Route path="*" element={<NotFound />} />
         </Routes >
       </div >
       {!isAdminOrSeller && <Footer />}
