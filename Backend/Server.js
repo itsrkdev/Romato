@@ -21,11 +21,19 @@ const server = http.createServer(app); // HTTP server create kiya
 // Socket.io config with CORS
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
-    // origin: "http://10.61.7.14:5173", // Apne frontend ka URL daalein
-    methods: ["GET", "POST"]
+    origin: process.env.FRONTEND_URL, 
+    methods: ["GET", "POST"],
+    credentials: true             // Isko add karna safe rehta hai sessions/cookies ke liye
   }
 });
+
+// const io = new Server(server, {
+//   cors: {
+//     origin: "http://localhost:5173",
+//     // origin: "http://10.61.7.14:5173", // Apne frontend ka URL daalein
+//     methods: ["GET", "POST"]
+//   }
+// });
 
 
 // Middleware
