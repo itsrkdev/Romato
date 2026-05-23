@@ -9,8 +9,8 @@ const StoreContextProvider = (props) => {
     const [food_list, setFoodList] = useState([]); // 2. State banayein (Static import hata dein)
       const [loading, setLoading] = useState(true); //  item load ke liye skelton state 
     const [token, setToken] = useState(localStorage.getItem("token") || ""); // 1. Token state add karein
-    const url = "http://localhost:3000"; 
-    // const url = "http://10.61.7.14:3000";// 3. Backend URL add karein
+    // const url = "http://localhost:3000"; 
+    const url = import.meta.env.VITE_BACKEND_URL;
     const [categories, setCategories] = useState([]);
 
     const [userData, setUserData] = useState(null); // Nayi state
