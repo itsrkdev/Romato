@@ -7,6 +7,7 @@ const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
     const [food_list, setFoodList] = useState([]); // 2. State banayein (Static import hata dein)
+      const [loading, setLoading] = useState(true); //  item load ke liye skelton state 
     const [token, setToken] = useState(localStorage.getItem("token") || ""); // 1. Token state add karein
     const url = "http://localhost:3000"; 
     // const url = "http://10.61.7.14:3000";// 3. Backend URL add karein
@@ -127,18 +128,22 @@ const StoreContextProvider = (props) => {
 
 
 
-    // 4. Data fetch karne ke liye function
+  // 4. Data fetch karne ke liye function
     const fetchFoodList = async () => {
         try {
+            setLoading(true); // Fetch shuru hote hi loading true karo
             // Headers tabhi bhejein jab token maujood ho
             const config = token ? { headers: { token } } : {};
-
             const response = await axios.get(url + "/api/food/list", config);
             setFoodList(response.data.data);
+            setLoading(false);
+
         } catch (error) {
             console.error("Error fetching food:", error);
+            setLoading(false);
         }
     }
+
 
 
     const getTotalCartAmount = () => {
@@ -194,7 +199,8 @@ const StoreContextProvider = (props) => {
         userData,
         setUserData,
         categories,    
-        fetchCategories
+        fetchCategories,
+         loading,
     }
 
     return (
