@@ -62,6 +62,51 @@
     border: none;
 }
 
+/*  loader csss */
+
+/* Skeleton Layout */
+.explore-menu-skeleton-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 80px;
+}
+
+/* Gol aakar ka fake image placeholder */
+.skeleton-circle {
+  width: 7.5vw;
+  min-width: 80px;
+  height: 7.5vw;
+  min-height: 80px;
+  border-radius: 50%;
+}
+
+/* Fake text placeholder */
+.skeleton-text {
+  width: 60px;
+  height: 15px;
+  border-radius: 4px;
+}
+
+/* Shimmer (Chamakne wali animation) */
+.menu-shimmer {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: menuShimmerAnim 1.5s infinite linear;
+}
+
+
+@keyframes menuShimmerAnim {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
 /* --- Media Queries --- */
 
 /* Tablet View */
@@ -109,3 +154,4 @@
         padding-bottom: 10px; /* Thoda gap scroll area ke niche */
     }
 }
+
