@@ -9,12 +9,10 @@ const StoreContextProvider = (props) => {
     const [food_list, setFoodList] = useState([]); // 2. State banayein (Static import hata dein)
       const [loading, setLoading] = useState(true); //  item load ke liye skelton state 
     const [token, setToken] = useState(localStorage.getItem("token") || ""); // 1. Token state add karein
-    // const url = "http://localhost:3000"; 
     const url = import.meta.env.VITE_BACKEND_URL;
     const [categories, setCategories] = useState([]);
-
     const [userData, setUserData] = useState(null); // Nayi state
-
+     const [search, setSearch] = useState("");
 
     // Global fetch function
     const fetchCategories = async () => {
@@ -32,7 +30,6 @@ const StoreContextProvider = (props) => {
     useEffect(() => {
         fetchCategories();
     }, []);
-
 
 
     // User data fetch karne ka function
@@ -58,7 +55,6 @@ const StoreContextProvider = (props) => {
         }
     }
 
-
     useEffect(() => {
         async function loadData() {
             const storedToken = localStorage.getItem("token");
@@ -69,8 +65,6 @@ const StoreContextProvider = (props) => {
         }
         loadData();
     }, []);
-
-
 
 
     // 2. Backend se cart data mangwana
@@ -101,7 +95,6 @@ const StoreContextProvider = (props) => {
     }
 
     // 4. useEffect mein refresh logic
-
 
     // Token change hone par cart data load karne ke liye alag useEffect
     // StoreContext.jsx mein ise aise likhein:
@@ -201,6 +194,8 @@ const StoreContextProvider = (props) => {
         categories,    
         fetchCategories,
          loading,
+        search,
+        setSearch,
     }
 
     return (
