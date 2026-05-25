@@ -15,20 +15,12 @@ export default function Footer() {
                 {/* Left Section: Logo, Description & Social Links */}
                 <div className="footer-content-left">
                     {/* <img src={assets.logo} alt="Tomato Logo" /> */}
-
-                    <div className="footer-logo" style={{ marginBottom: '20px', textAlign: 'left' }}>
-                  <span style={{
-                fontFamily: '"Poppins", "Inter", "Segoe UI", sans-serif',
-               fontWeight: '900',          // Ekdam heavy bold look ke liye
-             fontSize: '44px',           // Screenshot ke hisab se exact size
-            color: '#ff4321',           // Exact wahi original Tomato orange-red color
-              letterSpacing: '-1.5px',    // Letter spacing tight rakhne ke liye
-             display: 'inline-block',
-            lineHeight: '1'
-                }}>
-               Romato<span style={{ color: '#ff4321' }}>.</span>
-             </span>
-            </div>
+                    
+                    <div className="footer-logo">
+                     <span className="footer-logo-text">
+                    Romato<span>.</span>
+                     </span>
+                     </div>
 
                     
                     <p>
