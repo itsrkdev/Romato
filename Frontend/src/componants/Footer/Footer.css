@@ -26,16 +26,17 @@
     gap: 15px;
 }
 
-/* --- BRAND TEXT LOGO CLASS (No inline style needed now) --- */
+/* --- BRAND TEXT LOGO CLASS (Exact matching screenshot style) --- */
 .footer-logo-text {
     font-family: "Poppins", "Inter", "Segoe UI", sans-serif;
     font-weight: 900;
-    font-size: 42px; /* Desktop standard size */
-    color: #ff4321; /* Romato signature red */
+    font-size: 44px; /* Desktop ke liye exact matching bold size */
+    color: #ff4321; /* Romato signature tomato red */
     letter-spacing: -1.5px;
     display: inline-block;
     line-height: 1;
     margin-bottom: 5px;
+    text-align: left;
 }
 
 /* Titles Style */
@@ -135,7 +136,7 @@
     text-align: center;
 }
 
-/* --- 📱 UPDATED & OPTIMIZED RESPONSIVE QUERIES --- */
+/* --- 📱 OPTIMIZED RESPONSIVE QUERIES --- */
 
 @media (max-width: 900px) {
     .footer-content {
@@ -164,7 +165,7 @@
     }
 
     .footer-logo-text {
-        font-size: 36px; /* 👈 Phone par logo thoda chota kiya taaki screen se bahar na bhage */
+        font-size: 36px; /* Phone par automatic safe text resize */
         letter-spacing: -1px;
     }
 
@@ -185,6 +186,6 @@
     }
     
     .footer-logo-text {
-        font-size: 32px; /* Aur optimize kiya taaki single line me aaye */
+        font-size: 32px; /* Aur optimize kiya taaki single line me aaye aur wrap na ho */
     }
 }
