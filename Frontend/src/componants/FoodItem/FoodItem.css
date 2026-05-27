@@ -256,11 +256,8 @@
 }
 
 
-
-
-/* --- Mobile Fixes (2 Column Layout) --- */
 /* --- Mobile Fixes (Premium 2 Column Layout) --- */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .food-item-info {
         padding: 10px; /* Thoda clean padding */
         gap: 6px;
