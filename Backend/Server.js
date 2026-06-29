@@ -50,6 +50,10 @@ app.use("/images", express.static('uploads')); // Images access karne ke liye
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+app.get("/status", (req, res) => {
+  res.send("Server is alive and kicking!");
+});
+
 
 app.use("/api/food", FoodRouter)
 app.use("/api/user", userRouter)
