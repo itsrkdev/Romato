@@ -121,7 +121,7 @@ export default function Navbar({ setShowLogin }) {
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     alt="toggle"
                 >
-                    &#9776;
+                   {isMobileMenuOpen ? '\u2715' : '\u2630'}
                 </p>
 
             </div>
