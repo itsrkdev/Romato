@@ -191,6 +191,10 @@
     /* .user-text, .nav-search-icon {
         display: none; 
     } */
+    
+    .nav-search-container input{
+        width:69px;
+    }
 
     .navbar-right {
         gap: 10px;
