@@ -188,9 +188,9 @@
         display: block;
     }
 
-    .user-text, .nav-search-icon {
-        display: none; /* Mobile par clean look ke liye */
-    }
+    /* .user-text, .nav-search-icon {
+        display: none; 
+    } */
 
     .navbar-right {
         gap: 10px;
